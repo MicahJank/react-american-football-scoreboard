@@ -2,7 +2,7 @@ import React from "react";
 import {useState} from "react"; 
 import "../App.css";
 
-function HomeButton(props) {
+function HomeButtons(props) {
     return (
         <>
         <button onClick={() => props.setScore(props.score + (7+1))} className="homeButtons__touchdown">Home Touchdown</button>
@@ -11,4 +11,4 @@ function HomeButton(props) {
     );
 }
 
-export default HomeButton;
+export default HomeButtons;

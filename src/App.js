@@ -5,7 +5,8 @@ import './App.css';
 import BottomRow from "./BottomRow";
 import LionsScore from "./components/lionsScore";
 import TigersScore from "./components/tigersScore";
-import HomeButton from "./components/homeButtons";
+import HomeButtons from "./components/homeButtons";
+import AwayButtons from "./components/awayButtons";
 
 function App() {
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
@@ -20,21 +21,17 @@ function App() {
         <div className="topRow">
          <LionsScore score={lionsScore} />
           <div className="timer">00:03</div>
-          <div className="away">
-            <h2 className="away__name">Tigers</h2>
-            <div className="away__score">{tigersScore}</div>
-          </div>
+          <TigersScore score={tigersScore} />
         </div>
         <BottomRow />
       </section>
       <section className="buttons">
         <div className="homeButtons">
           {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
-          <HomeButton setScore={setLionsScore} score={lionsScore}/>
+          <HomeButtons setScore={setLionsScore} score={lionsScore}/>
         </div>
         <div className="awayButtons">
-          <button onClick={() => setTigersScore(tigersScore + (7 + 1))} className="awayButtons__touchdown">Away Touchdown</button>
-          <button onClick={() => setTigersScore(tigersScore + 3)} className="awayButtons__fieldGoal">Away Field Goal</button>
+          <AwayButtons setScore={setTigersScore} score={tigersScore} />
         </div>
       </section>
     </div>
